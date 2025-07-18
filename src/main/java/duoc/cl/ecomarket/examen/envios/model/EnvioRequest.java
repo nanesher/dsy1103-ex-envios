@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class EnvioRequest {
-    private Integer idCliente;
+    private Integer idUsuario;
     private String tipoEntrega;
 
 }

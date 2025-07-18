@@ -40,14 +40,16 @@ public class EnvioService {
     }
     public Envio save(EnvioRequest envioInicio){
         Envio envio = new Envio();
-        String url = usuariosApiUrl + envioInicio.getIdCliente();
+        String url = usuariosApiUrl + envioInicio.getIdUsuario();
         ResponseEntity<EntityModel<UsuarioDTO>> response = restTemplate.exchange(
                 url,
                 HttpMethod.GET,
                 null,
                 new ParameterizedTypeReference<>() {}
         );
+        assert response.getBody() != null;
         UsuarioDTO usuarioDTO = response.getBody().getContent();
+        assert usuarioDTO != null;
         envio.setIdUsuario(usuarioDTO.getIdUsuario());
         envio.setNombreCliente(usuarioDTO.getNombre());
         envio.setTipoEntrega(envioInicio.getTipoEntrega());

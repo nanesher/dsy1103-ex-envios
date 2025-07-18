@@ -15,6 +15,6 @@ public class UsuarioDTO {
     private String rut;
     private String email;
     private String direccion;
-    private Boolean isValid=true;
+    private Boolean isValid;
 
 }
